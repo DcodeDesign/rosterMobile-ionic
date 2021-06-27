@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="toolbar-menu">
+      <ion-title>home</ion-title>
+      <ion-button (click)="logout()" color="primary" shape="round" fill="outline">Logout</ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Coordinates</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>Latitude: {{ latitude }}</ion-item>
+      <ion-item>Longitude: {{ longitude }}</ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Tâches</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let task of tasks">
+          <ion-thumbnail slot="start">
+            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+          </ion-thumbnail>
+          <ion-label>
+            <h4>Tâche : {{task.name}}</h4>
+            <p>créé le {{ task.create_at | date }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

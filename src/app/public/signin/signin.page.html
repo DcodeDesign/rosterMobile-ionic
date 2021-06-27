@@ -1,0 +1,21 @@
+<ion-content>
+  <div class="content">
+    <ion-card class="signin-form-card">
+      <ion-card-header class="ion-text-center">
+        <ion-card-subtitle>Roster</ion-card-subtitle>
+        <ion-card-title>Signin</ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="full-width">
+        <form [formGroup]="signinFormGroup" (ngSubmit)="onSubmit(signinFormGroup.value)">
+          <ion-item>
+            <ion-input type="text" formControlName="email" name="email" placeholder="Email"></ion-input>
+          </ion-item>
+          <ion-item class="mt-15">
+            <ion-input type="password" formControlName="password" name="password" placeholder="Mot de passe"></ion-input>
+          </ion-item>
+            <ion-button [attr.disabled]="!signinFormGroup.valid" class="mt-21" type="submit" expand="full" shape="round" fill="outline">Se connecter</ion-button>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,0 +1,8 @@
+{
+  "name": "roster-ionic",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}
