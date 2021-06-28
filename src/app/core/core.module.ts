@@ -6,8 +6,6 @@ import {PublicModule} from '../public/public.module';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
 
-import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
-
 // DATE
 import {registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
@@ -27,8 +25,7 @@ registerLocaleData(localeFr, 'fr');
     HttpClientModule
   ],
   providers: [
-    {provide: LOCALE_ID, useValue: 'fr' },
-    NativeGeocoder
+    {provide: LOCALE_ID, useValue: 'fr' }
   ]
 })
 export class CoreModule {

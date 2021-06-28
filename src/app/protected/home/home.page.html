@@ -38,4 +38,29 @@
     </ion-card-content>
   </ion-card>
 
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Formulaire</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <ion-item>
+          <ion-input formControlName="nom" placeholder="Nom" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input formControlName="email" placeholder="Email" type="password"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input formControlName="password" placeholder="Mot de passe" type="password"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Confirmation" type="password"></ion-input>
+        </ion-item>
+
+        <ion-button class="ion-margin-top" type="submit" >Envoyer</ion-button>
+      </form>
+
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
