@@ -1,0 +1,9 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Coordinates</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item>Latitude: {{ latitude }} <ion-spinner class="ml-5" *ngIf="!latitude" name="dots"></ion-spinner> </ion-item>
+    <ion-item>Longitude: {{ longitude }} <ion-spinner class="ml-5" *ngIf="!longitude" name="dots"></ion-spinner></ion-item>
+  </ion-card-content>
+</ion-card>

@@ -1,0 +1,68 @@
+
+    <form *ngIf="loading" (ngSubmit)="submit()" [formGroup]="form">
+      <ion-item>
+        <ion-input formControlName="nom" placeholder="Nom" type="text"></ion-input>
+        <div *ngIf="fieldNom.errors && fieldNom.touched">
+          <p style="color:#eb445a;" *ngIf="fieldNom.errors.required">Requis</p>
+        </div>
+      </ion-item>
+      <div *ngIf="fieldNom.errors">
+        <p style="color:#eb445a;" *ngIf="fieldNom.errors.notPaul"> Le nom paul n'est pas autoriser</p>
+      </div>
+
+      <div formGroupName="login">
+        <ion-item>
+          <ion-input autocomplete="off" name="formEmail" formControlName="email" placeholder="Email" type="email"></ion-input>
+          <div *ngIf="fieldEmail.errors && fieldEmail.touched">
+            <p style="color:#eb445a;" *ngIf="fieldEmail.errors.required">Requis</p>
+          </div>
+        </ion-item>
+        <div *ngIf="fieldEmail.errors">
+          <p style="color:#eb445a;" *ngIf="fieldEmail.errors.email"> Email incorrect </p>
+        </div>
+
+        <ion-item>
+          <ion-input autocomplete="off" name="formPass" formControlName="password" placeholder="Mot de passe" type="password"></ion-input>
+          <div *ngIf="fieldPassword.errors && fieldPassword.touched">
+            <p style="color:#eb445a;" *ngIf="fieldPassword.errors.required">Requis</p>
+          </div>
+        </ion-item>
+        <div *ngIf="fieldPassword.errors && fieldPassword.touched">
+          <p style="color:#eb445a;" *ngIf="fieldPassword.errors.notMatching"> Les mots de passe ne correspondent pas</p>
+        </div>
+      </div>
+
+      <ion-item color="{{ confirmPassword && confirmation.value === '' ? 'red' : '' }}">
+        <ion-input #confirmation
+                   (ionBlur)="checkConfirm($event)"
+                   placeholder="Confirmation du mot de passe"
+                   type="password"
+                   required></ion-input>
+        <div *ngIf="confirmation.value === ''">
+          <p style="color:#eb445a;" *ngIf="confirmPassword">Requis</p>
+        </div>
+      </ion-item>
+
+      <div formArrayName="hobbies" class="d-flex flex-column form-group">
+        <label>Hobbies</label>
+        <ion-button class="ion-margin-top" type="button" class="btn btn-primary" (click)="addHobby($event)">
+          Ajouter hobby
+        </ion-button>
+        <ion-item *ngFor="let hobby of hobbies.controls; let index = index">
+          <ion-input
+            placeholder="Hobbies"
+            style="margin-top: 5px;"
+            type="text"
+            [formControlName]="index"
+          ></ion-input>
+          <span class="delete" (click)="deleteHobby(index, $event)">&#10060;</span>
+        </ion-item>
+      </div>
+
+      <ion-item>
+        <ion-label color="primary" floating>Floating Label</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+
+      <ion-button [disabled]="!form.valid" class="ion-margin-top" type="submit">Envoyer</ion-button>
+    </form>

@@ -1,0 +1,19 @@
+
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Tâches</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-list>
+      <ion-item *ngFor="let task of tasks | async">
+        <ion-thumbnail slot="start">
+          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        </ion-thumbnail>
+        <ion-label>
+          <h4>Tâche : {{task.name}}</h4>
+          <p>créé le {{ task.create_at | date }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>

@@ -7,11 +7,13 @@ import {CoreModule} from './core/core.module';
 import {JwtInterceptor} from './core/interceptors/jwt.Interceptor';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {ErrorInterceptor} from './core/interceptors/error.Interceptor';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
+    FormsModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     CoreModule
